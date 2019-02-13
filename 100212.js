@@ -8,8 +8,10 @@ window.onload = function () {
         }
     `;
     const vs_source = `
+        precision mediump float;
+        uniform vec4 u_fragColor;
         void main(){
-            gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+            gl_FragColor = u_fragColor;
         }
     `;
     main();
@@ -37,6 +39,10 @@ window.onload = function () {
         const a_pointSize = glc.getAttribLocation(glc.program,"a_pointSize");
         console.log(a_pointSize);
         glc.vertexAttrib1f(a_pointSize,40.0);
+
+        const u_fragColor = glc.getUniformLocation(glc.program,"u_fragColor");
+        console.log(u_fragColor);
+        glc.uniform4f(u_fragColor,1,0,0,1);
         /**
          * webGL的 函数的 命名规范 pdf的 44 页
          */
