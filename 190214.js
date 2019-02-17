@@ -46,6 +46,14 @@ window.onload = function () {
         glc.clearColor(0, 0, 0, 1.0);
         glc.clear(glc.COLOR_BUFFER_BIT);
         glc.drawArrays(glc.TRIANGLE_STRIP,0,3);
-        // type 的类型 glc.POINTS(点)、glc.LINES(线段)、glc.LINE_STRIP(线条，选中 点 连接的 一系列 线段 的连接)、glc.LINE_LOOP(线段的回路)、glc.TRIANGLES(一系列 三角形)、glc.TRIANGLE_STRIP(前三个点 构成第一个 三角行、从 第二个 点 开始 三个点 构成 第二个，两个三角行 共享一个边、以此类推 注意：点的 顺序 (v0,v1,v2) (v2,v1,v3))
+        /* 
+        type 的类型 （都是 逆时针 生成的 图形）
+        glc.POINTS(点)、
+        glc.LINES(线段)、
+        glc.LINE_STRIP(线条，选中 点 连接的 一系列 线段 的连接)、glc.LINE_LOOP(线段的回路)、
+        glc.TRIANGLES(一系列 三角形)、
+        glc.TRIANGLE_STRIP(前三个点 构成第一个 三角行、从 第二个 点 开始 三个点 构成 第二个，两个三角行 共享一个边、以此类推 注意：点的 顺序 (v0,v1,v2) (v2,v1,v3))、
+        glc.TRIANGLE_FAN：这个是组成扇形 ，一直保留一个 共有 的 v0点；
+        */
     }
 }
