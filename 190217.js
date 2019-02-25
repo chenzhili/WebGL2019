@@ -1,8 +1,9 @@
 window.onload = function () {
     const v_source = `
         attribute vec4 a_position;
+        uniform vec4 u_transition;
         void main(){
-            gl_Position = a_position;
+            gl_Position = a_position+u_transition;
         }
     `;
     const s_source = `
@@ -19,6 +20,9 @@ window.onload = function () {
         if(!initShaders(glc,v_source,s_source)){return;}
 
         const a_position = glc.getAttribLocation(glc.program,"a_position");
+        const u_transition = glc.getUniformLocation(glc.program,"u_transition");
+        console.log(u_transition);
+        glc.uniform4f(u_transition,0.5,0.5,0,1.0);
         console.log(a_position);
         // 批量 向 a_positon 传值
         const buffer = glc.createBuffer(cvs);
